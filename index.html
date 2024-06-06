@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyección de Población</title>
+    <script>
+        function calcularPoblacion() {
+            // Datos iniciales
+            const P0 = 50e6; // Población inicial
+            const d = 20;    // Tiempo en el que la población se duplica
+            
+            // Obtener el valor del tiempo ingresado por el usuario
+            const tiempoSeleccionado = parseFloat(document.getElementById('tiempoSeleccionado').value);
+            
+            // Calcular la población para el tiempo ingresado por el usuario
+            const P = P0 * Math.pow(2, tiempoSeleccionado / d);
+            
+            // Mostrar el resultado correspondiente
+            document.getElementById('resultado').innerText = `La población dentro de ${tiempoSeleccionado} años será: ${(P / 1e6).toFixed(2)} millones`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Proyección de Población</h1>
+    <label for="tiempoSeleccionado">Ingrese el tiempo en años:</label>
+    <input type="number" id="tiempoSeleccionado" placeholder="Ej: 5">
+    <button onclick="calcularPoblacion()">Calcular</button>
+    
+    <p id="resultado"></p>
+</body>
+</html>
